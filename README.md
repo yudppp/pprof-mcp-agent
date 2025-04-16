@@ -24,8 +24,6 @@ pprof-mcp-agent is a tool that makes it easy to collect and analyze performance 
 - Profile data delivery via MCP protocol
 - Easy integration and configuration
 - Real-time profiling data collection
-- Customizable profiling duration (for CPU profiles)
-- Graceful shutdown support
 
 ## Usage
 
