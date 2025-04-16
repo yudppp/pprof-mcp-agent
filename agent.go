@@ -62,13 +62,6 @@ func NewTool() mcp.Tool {
 			mcp.Required(),
 			mcp.Enum("heap", "goroutine", "threadcreate", "block", "allocs", "cpu"),
 		),
-		mcp.WithNumber(
-			"duration",
-			mcp.Description("Duration in seconds(number) to collect the profile (only for CPU profile)"),
-			mcp.DefaultNumber(10),
-			mcp.Min(1),
-			mcp.Max(60),
-		),
 	)
 }
 
@@ -79,10 +72,6 @@ func Handler(ctx context.Context, request mcp.CallToolRequest) (*mcp.CallToolRes
 	}
 	if profileType == "cpu" {
 		duration := 10
-		if d, ok := request.Params.Arguments["duration"].(float64); ok {
-			duration = int(d)
-		}
-
 		var buf bytes.Buffer
 		if err := pprof.StartCPUProfile(&buf); err != nil {
 			return handleMCPError(err), nil

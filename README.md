@@ -57,15 +57,6 @@ The following profile types are supported:
 - `block`: Block profile
 - `allocs`: Allocation profile
 
-## Configuration Options
-
-### CPU Profile
-
-- `duration`: Profile collection time (seconds)
-  - Minimum: 1 second
-  - Maximum: 60 seconds
-  - Default: 10 seconds
-
 ## Contributing
 
 Contributions are welcome! Please feel free to submit a Pull Request.
