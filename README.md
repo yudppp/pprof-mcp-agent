@@ -39,7 +39,7 @@ import (
 
 func main() {
     ctx := context.Background()
-    err := pprofmcpagent.ServeMCPServer(ctx, ":1239")
+    err := pprofmcpagent.ServeSSE(ctx, ":1239")
     if err != nil {
         // Handle error
     }
