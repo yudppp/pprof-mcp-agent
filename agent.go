@@ -13,7 +13,7 @@ import (
 	"github.com/mark3labs/mcp-go/server"
 )
 
-func ServeMCPServer(ctx context.Context, port string) error {
+func ServeSSE(ctx context.Context, port string) error {
 	s := server.NewMCPServer(
 		"pprof server",
 		"1.0.0",

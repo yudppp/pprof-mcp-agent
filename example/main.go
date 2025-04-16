@@ -25,7 +25,7 @@ func main() {
 	go heavyProcess()
 
 	fmt.Println("MCP server listening on :1239")
-	err := pprofmcpagent.ServeMCPServer(ctx, ":1239")
+	err := pprofmcpagent.ServeSSE(ctx, ":1239")
 	if err != nil {
 		fmt.Printf("Error starting server: %v\n", err)
 		return
