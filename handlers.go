@@ -12,7 +12,7 @@ import (
 	"github.com/mark3labs/mcp-go/mcp"
 )
 
-// Package pprofmcpagent provides a Mission Control Protocol (MCP) agent for Go's runtime profiling.
+// Package pprofmcpagent provides a Model Context Protocol (MCP) agent for Go's runtime profiling.
 // It enables real-time collection and analysis of various Go runtime profiles through MCP.
 
 // Profile type constants

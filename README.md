@@ -1,6 +1,6 @@
 # pprof-mcp-agent
 
-A Go agent that provides runtime profiling data through the Mission Control Protocol (MCP). It enables real-time collection and analysis of Go runtime performance data, making it easier to monitor and debug Go applications in production.
+A Go agent that provides runtime profiling data through the Model Context Protocol (MCP). It enables real-time collection and analysis of Go runtime performance data, making it easier to monitor and debug Go applications in production.
 
 ## Installation
 
