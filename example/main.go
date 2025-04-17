@@ -2,7 +2,7 @@ package main
 
 import (
 	"context"
-	"fmt"
+	"log"
 	"os"
 	"os/signal"
 	"syscall"
@@ -22,24 +22,29 @@ func main() {
 		cancel()
 	}()
 
-	go heavyProcess()
+	go heavyProcess(ctx)
 
-	fmt.Println("MCP server listening on :1239")
+	log.Println("MCP server listening on :1239")
 	err := pprofmcpagent.ServeSSE(ctx, ":1239")
 	if err != nil {
-		fmt.Printf("Error starting server: %v\n", err)
+		log.Printf("Error starting server: %v\n", err)
 		return
 	}
 }
 
 // heavyProcess simulates a CPU-intensive task for profiling demonstration
-func heavyProcess() {
+func heavyProcess(ctx context.Context) {
 	for {
-		var data []int
-		for i := 0; i < 1000000; i++ {
-			data = append(data, i)
+		select {
+		case <-ctx.Done():
+			return
+		default:
+			var data []int
+			for i := 0; i < 1000000; i++ {
+				data = append(data, i)
+			}
+			_ = data
+			time.Sleep(1 * time.Second)
 		}
-		_ = data
-		time.Sleep(1 * time.Second)
 	}
 }
